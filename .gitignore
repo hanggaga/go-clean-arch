@@ -6,3 +6,8 @@ _*
 .DS_Store
 engine
 bin/
+/.idea/.gitignore
+/.idea/go-clean-arch.iml
+/.idea/modules.xml
+/.idea/vcs.xml
+/.env

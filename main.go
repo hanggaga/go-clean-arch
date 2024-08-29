@@ -16,6 +16,9 @@ import (
 	_articleRepo "github.com/bxcodec/go-clean-arch/article/repository"
 	_articleUcase "github.com/bxcodec/go-clean-arch/article/usecase"
 	_authorRepo "github.com/bxcodec/go-clean-arch/author/repository"
+
+	_bmiHttpDelivery "github.com/bxcodec/go-clean-arch/bmi/delivery/http"
+	_bmiUcase "github.com/bxcodec/go-clean-arch/bmi/usecase"
 )
 
 func init() {
@@ -66,6 +69,9 @@ func main() {
 	timeoutContext := time.Duration(viper.GetInt("context.timeout")) * time.Second
 	au := _articleUcase.NewArticleUsecase(ar, authorRepo, timeoutContext)
 	_articleHttpDelivery.NewArticleHandler(e, au)
+
+	bu := _bmiUcase.NewBMIUsecase()
+	_bmiHttpDelivery.NewBMIHandler(e, bu)
 
 	log.Fatal(e.Start(viper.GetString("server.address")))
 }

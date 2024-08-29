@@ -64,7 +64,8 @@ $ make run
 $ docker ps
 
 # Execute the call
-$ curl localhost:9090/articles
+$ curl "localhost:9090/articles"
+$ curl "localhost:9090/bmi?height=175&weight=70"
 
 # Stop
 $ make stop
